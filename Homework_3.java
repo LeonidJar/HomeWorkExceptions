@@ -34,7 +34,6 @@ import java.util.Scanner;
 
 public class Homework_3 {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Напишите ФИО, дату рождения, номер телефона и пол через пробел");
@@ -44,8 +43,6 @@ public class Homework_3 {
             System.out.println("Напишите ФИО, дату рождения, номер телефона и пол через пробел");
             line = scanner.nextLine().split(" ");
         }
-
-        CreateAndWriteFile(line);
 
         scanner.close();
     }
@@ -91,6 +88,7 @@ public class Homework_3 {
                 System.out.println(oldData.get(0));
                 oldData.add(String.join(" ", line));
                 Files.write(file, oldData, StandardCharsets.UTF_8);
+                System.out.println("Информация записана в существующий файл");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -98,6 +96,7 @@ public class Homework_3 {
             try {
                 List<String> lines = Arrays.asList(String.join(" ", line));
                 Files.write(file, lines, StandardCharsets.UTF_8);
+                System.out.println("Создан новый файл " + surname + ".txt и в него записана информация");
             } catch (IOException e) {
                 e.printStackTrace();
             }
